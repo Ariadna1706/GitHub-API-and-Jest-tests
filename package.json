@@ -1,0 +1,41 @@
+{
+  "name": "task-js-testing",
+  "version": "1.0.0",
+  "description": "> ⭐ ***README** to coś więcej niż opis. Poprzez nie **pokazujesz swoje mocne strony** – swoją dokładność, sposób myślenia i podejście do rozwiązywania problemów. Niech Twoje README pokaże, że masz **świetne predyspozycje do rozwoju!*** >  > 🎁 *Zacznij od razu. Skorzystaj z **[szablonu README i wskazówek](https://github.com/devmentor-pl/readme-template)**.*",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test-watch": "jest --watchAll",
+    "start": "webpack serve --mode development --open",
+    "build": "webpack --mode production"
+  },
+  "jest": {
+    "transformIgnorePatterns": []
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devmentor-pl/task-js-testing.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devmentor-pl/task-js-testing/issues"
+  },
+  "homepage": "https://github.com/devmentor-pl/task-js-testing#readme",
+  "devDependencies": {
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
+    "babel-jest": "^29.5.0",
+    "babel-loader": "^9.1.2",
+    "html-webpack-plugin": "^5.5.1",
+    "jest": "^27.5.1",
+    "webpack": "^5.81.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.13.3"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.9",
+    "octokit": "^2.0.14"
+  }
+}
