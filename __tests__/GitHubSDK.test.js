@@ -38,4 +38,17 @@ describe("GitHubSDK", () => {
       }
     });
   });
+
+  describe("getUserRepos", () => {
+    it("get user repos data", async () => {
+      const gh = new GitHubSDK("Ariadna1706", "token");
+
+      const repoData = await gh.getUserRepos()
+
+      expect(repoData).toEqual({})
+
+    
+
+    });
+  });
 });
