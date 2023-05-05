@@ -4,8 +4,8 @@ export default class GitHubSDK {
     this.secretToken = secretToken;
   }
 
-  checkUser(user) {
-  const apiUrl = `https://api.github.com/users`;
+ /* checkUser(user) {
+   const apiUrl = `https://api.github.com/users`;
 
     return fetch(`${apiUrl}/${user}`, {
       headers: {
@@ -26,7 +26,23 @@ export default class GitHubSDK {
         return Promise.reject("user not found!");
       }
     });
-  }
+  }*/
 
-  
+ /* getUserRepos(user) {
+  const apiUrl = `https://api.github.com/users/${user}/repos`
+
+    return fetch(apiUrl, {
+      headers: {
+        Accept: "application/vnd.github+json",
+        //Authorization: `token ${this.secretToken}`,
+      },
+    }).then((resp) => {
+      if (resp.ok) {
+        return resp.json();
+      }
+      return Promise.reject(resp)
+
+      
+    });
+  }*/
 }

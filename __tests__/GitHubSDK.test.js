@@ -43,12 +43,21 @@ describe("GitHubSDK", () => {
     it("get user repos data", async () => {
       const gh = new GitHubSDK("Ariadna1706", "token");
 
-      const repoData = await gh.getUserRepos()
+      const repoData = await gh.getUserRepos("Ariadna1706");
 
-      expect(repoData).toEqual({})
+      expect(repoData.length).toEqual(21);
+    });
+  });
 
-    
+  describe("checkRepoCollaborator", () => {
+    it("check if collaborator for QuotesGenerator Repo", async () => {
+      const gh = new GitHubSDK("bogolubow");
 
+      try {
+        await gh.checkCollaborator("QuotesGenerator", "bogolubow");
+      } catch (err) {
+        expect(err).toBe("user is not a collaborator");
+      }
     });
   });
 });
