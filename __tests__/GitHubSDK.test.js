@@ -51,10 +51,14 @@ describe("GitHubSDK", () => {
 
   describe("checkRepoCollaborator", () => {
     it("check if collaborator for QuotesGenerator Repo", async () => {
-      const gh = new GitHubSDK("bogolubow");
+      expect.assertions(1)
+      const gh = new GitHubSDK(
+        "Ariadna1706",
+        "token"
+      );
 
       try {
-        await gh.checkCollaborator("QuotesGenerator", "bogolubow");
+        await gh.checkCollaborator("QuotesGenerator");
       } catch (err) {
         expect(err).toBe("user is not a collaborator");
       }

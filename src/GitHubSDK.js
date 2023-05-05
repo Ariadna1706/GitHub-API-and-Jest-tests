@@ -4,13 +4,13 @@ export default class GitHubSDK {
     this.secretToken = secretToken;
   }
 
- /* checkUser(user) {
-   const apiUrl = `https://api.github.com/users`;
+  checkUser(user) {
+    const apiUrl = `https://api.github.com/users`;
 
     return fetch(`${apiUrl}/${user}`, {
       headers: {
         Accept: "application/vnd.github.v3+json",
-        //Authorization: `token ${this.secretToken}`,
+       // Authorization: `Bearer ${this.secretToken}`,
       },
     }).then((resp) => {
       if (resp.ok) {
@@ -26,23 +26,51 @@ export default class GitHubSDK {
         return Promise.reject("user not found!");
       }
     });
-  }*/
+  }
 
- /* getUserRepos(user) {
-  const apiUrl = `https://api.github.com/users/${user}/repos`
+  getUserRepos(user) {
+    const apiUrl = `https://api.github.com/users/${user}/repos`;
 
     return fetch(apiUrl, {
       headers: {
         Accept: "application/vnd.github+json",
-        //Authorization: `token ${this.secretToken}`,
+        //Authorization: `Bearer ${this.secretToken}`,
       },
     }).then((resp) => {
       if (resp.ok) {
         return resp.json();
       }
-      return Promise.reject(resp)
-
-      
+      return Promise.reject(resp);
     });
-  }*/
+  }
+
+  checkCollaborator(repo) {
+
+    const apiUrl = `https://api.github.com/repos/Ariadna1706/${repo}/collaborators/${this.user}`;
+
+    return fetch(apiUrl, {
+      headers: {
+        Accept: "application / vnd.github + json",
+       // Authorization: `Bearer ${this.secretToken}`,
+      },
+    }).then((resp) => {
+      if (resp.ok) {
+        return resp.json();
+      }
+
+      return Promise.reject(resp)
+   //   if (resp.status === 404) {
+   //     return Promise.reject("user is not a collaborator");
+   //   }
+
+   //    if (resp.status === 204) {
+   //      return Promise.reject("user is already a collaborator");
+   //    }
+      
+   });
+  }
+
+  sendInvitation(){
+
+  }
 }

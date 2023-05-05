@@ -4,16 +4,24 @@ document.addEventListener("DOMContentLoaded", init);
 
 const userLogin = document.querySelector(".login");
 
-const gh = new GitHubSDK();
+const gh = new GitHubSDK(
+  "Ariadna1706",
+  "token"
+  
+);
 
 function init() {
- // gh.checkUser("Ariadna1706")
- //   .then((resp) => addUser(resp.login))
- //   .catch((err) => console.error(err));
+  gh.checkUser("Ariadna1706")
+    .then((resp) => addUser(resp.login))
+    .catch((err) => console.error(err));
 
-//  gh.getUserRepos("Ariadna1706")
-//    .then((resp) => listUserRepoData(resp))
-//    .catch((err) => console.error(err));
+  gh.getUserRepos("Ariadna1706")
+    .then((resp) => listUserRepoData(resp))
+    .catch((err) => console.error(err));
+
+  gh.checkCollaborator("QuotesGenerator")
+    .then((resp) => console.log(resp))
+    .catch((err) => console.error(err));
 }
 
 function addUser(user) {
