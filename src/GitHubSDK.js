@@ -70,8 +70,8 @@ export default class GitHubSDK {
     });
   }
 
-  sendInvitation() {
-    const url = `https://api.github.com/repos/devmentor-pl/task-js-basics/collaborators/bogolubow`;
+  sendInvitation(repo, userName) {
+    const url = `https://api.github.com/repos/Ariadna1706/${repo}/collaborators/${userName}`;
 
     const promise = fetch(url, {
       method: "PUT",
@@ -85,6 +85,21 @@ export default class GitHubSDK {
         permission: "pull",
       }),
     });
+
+    return promise
+    .then(resp => {
+      
+      if(resp.status === 201){
+          return Promise.resolve("invitation sent");
+      }
+
+      if (resp.status === 204) {
+        return Promise.reject("invitation already sent");
+      }
+      
+
+    
+    }) 
 
 
     

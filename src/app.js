@@ -17,13 +17,16 @@ function init() {
     .catch((err) => console.error(err));
 
   gh.getUserRepos("Ariadna1706")
-    .then((resp) => console.log(resp))
     .then((resp) => listUserRepoData(resp))
     .catch((err) => console.error(err));
 
   gh.checkCollaborator("practice-js-basics-arrays")
     .then((resp) => console.log(resp))
     .catch((err) => console.error(err));
+
+    gh.sendInvitation("QuotesGenerator", "bogolubow")
+    .then(resp => console.log(resp))
+    .catch(err => console.error(err))
 }
 
 function addUser(user) {

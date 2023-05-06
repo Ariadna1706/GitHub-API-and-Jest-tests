@@ -92,14 +92,21 @@ describe("GitHubSDK", () => {
   });
 
   describe("sendInvitation", () => {
-    it("check if user is already a collaborator", async () => {
+    it("send invitation", async () => {
       const gh = new GitHubSDK("Ariadna1705", token);
 
-      const invite = await gh.sendInvitation("task-js-basics", "bogolubow");
+      const invite = await gh.sendInvitation("QuotesGenerator", "bogolubow");
 
-      expect(invite).toBe("invitation sent")
+      expect(invite).toBe("invitation sent");
+    });
+    it("check if inwitation has been sent already", async () => {
+      const gh = new GitHubSDK("Ariadna1705", token);
 
-
+      try {
+        await gh.sendInvitation("task-js-basics", "bogolubow");
+      } catch (err) {
+        expect(err).toBe("invitation already sent");
+      }
     });
   });
 });
