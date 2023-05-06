@@ -1,3 +1,5 @@
+
+import token from "./../src/token";
 import GitHubSDK from "./GitHubSDK";
 
 document.addEventListener("DOMContentLoaded", init);
@@ -6,8 +8,7 @@ const userLogin = document.querySelector(".login");
 
 const gh = new GitHubSDK(
   "Ariadna1706",
-  "token"
-  
+token
 );
 
 function init() {
@@ -16,10 +17,11 @@ function init() {
     .catch((err) => console.error(err));
 
   gh.getUserRepos("Ariadna1706")
+    .then((resp) => console.log(resp))
     .then((resp) => listUserRepoData(resp))
     .catch((err) => console.error(err));
 
-  gh.checkCollaborator("QuotesGenerator")
+  gh.checkCollaborator("practice-js-basics-arrays")
     .then((resp) => console.log(resp))
     .catch((err) => console.error(err));
 }
