@@ -20,7 +20,7 @@ export default class GitHubSDK {
         return Promise.reject("Limit exceeded");
       }
 
-      if (resp) {
+      if (resp.status === 404) {
         return Promise.resolve(resp);
       } else {
         return Promise.reject("user not found!");

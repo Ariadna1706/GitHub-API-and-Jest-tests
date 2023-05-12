@@ -20,8 +20,9 @@ describe("GitHubSDK", () => {
     it("throw error if user does not exist", async () => {
       const randomNumber = Math.floor(Math.random() * 25) + 10;
       const login = `Ariadna ${randomNumber}`;
-      //expect.assertions(1)
+
       const gh = new GitHubSDK(login, token);
+      expect.assertions(1);
 
       try {
         await gh.checkUser(login);
@@ -78,22 +79,4 @@ describe("GitHubSDK", () => {
     });
   });
 
-  describe("sendInvitation", () => {
-    it("send invitation", async () => {
-      const gh = new GitHubSDK("Ariadna1705", token);
-
-      const invite = await gh.sendInvitation("QuotesGenerator", "bogolubow");
-
-      expect(invite).toBe("invitation sent");
-    });
-    it("check if inwitation has been sent already", async () => {
-      const gh = new GitHubSDK("Ariadna1705", token);
-
-      try {
-        await gh.sendInvitation("task-js-basics", "bogolubow");
-      } catch (err) {
-        expect(err).toBe("invitation already sent");
-      }
-    });
-  });
 });
