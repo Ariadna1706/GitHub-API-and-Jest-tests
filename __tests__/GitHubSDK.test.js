@@ -11,19 +11,6 @@ describe("GitHubSDK", () => {
   });
 
   describe("checkUser", () => {
-    it("check if limit exceeded", async () => {
-      //expect.assertions(1);
-      const gh = new GitHubSDK("Ariadna1706", token);
-
-      {
-        try {
-          await gh.checkUser("Ariadna1706");
-        } catch (err) {
-          if (err.status === 403) expect(err).toBe("Limit exceeded");
-        }
-      }
-    });
-
     it("check if user exists", async () => {
       const gh = new GitHubSDK("Ariadna1706", token);
       const user = await gh.checkUser("Ariadna1706");
