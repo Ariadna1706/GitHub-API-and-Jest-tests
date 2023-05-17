@@ -1,4 +1,4 @@
-# GitHub public repositories portfolio
+# GitHub public repositories list
 
 
 The main goal of this project was to practice the use of GitHub REST API solutions and JavaScript Testing. 
