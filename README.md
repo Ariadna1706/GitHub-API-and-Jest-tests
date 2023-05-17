@@ -1,7 +1,7 @@
 # GitHub public repositories portfolio
 
 
-The main goal of this project was to practice use of GitHub REST API solutions and JavaSript Testing. 
+The main goal of this project was to practice use of GitHub REST API solutions and JavaScript Testing. 
 
 
 &nbsp;
